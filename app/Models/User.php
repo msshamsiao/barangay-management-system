@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Eloquent
 {
@@ -21,7 +22,9 @@ class User extends Eloquent
 
     protected $connection = 'mongodb';
 
-    protected $table = "users";
+    protected $collection = "users";
+    
+    protected $guarded = [];
     
     protected $fillable = [
         'firstname',
